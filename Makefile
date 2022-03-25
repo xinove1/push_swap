@@ -8,7 +8,7 @@ CFLAGS=-Wall -Wextra -Werror
 
 RM=rm -f
 
-SRC=push_swap.c stack_utils.c utilities.c parser.c
+SRC=push_swap.c stack_utils.c utilities.c parser.c operations.c
 
 BONUS =
 

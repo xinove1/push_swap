@@ -6,7 +6,7 @@
 /*   By: nthomas- <nthomas-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 14:57:57 by nthomas-          #+#    #+#             */
-/*   Updated: 2022/03/25 14:57:58 by nthomas-         ###   ########.fr       */
+/*   Updated: 2022/03/25 16:52:23 by nthomas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,18 @@ t_stack	*stack_last(t_stack *stack)
 		return (NULL);
 	i = stack;
 	while (i->next)
+		i = i->next;
+	return (i);
+}
+
+t_stack	*stack_penultimate(t_stack *stack)
+{
+	t_stack	*i;
+
+	if (!stack)
+		return (NULL);
+	i = stack;
+	while (i->next->next)
 		i = i->next;
 	return (i);
 }
