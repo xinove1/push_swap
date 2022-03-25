@@ -6,7 +6,7 @@
 /*   By: nthomas- <nthomas-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 03:01:57 by nthomas-          #+#    #+#             */
-/*   Updated: 2022/03/24 13:19:06 by nthomas-         ###   ########.fr       */
+/*   Updated: 2022/03/25 09:20:26 by nthomas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,6 @@ char	*ft_itoa_unsigned(unsigned int n);
 int		print_hex(va_list args, int lower);
 int		print_numbers(va_list args, int unsigned_number);
 int		print_p(va_list args);
+int		ft_isspace(char c);
 
 #endif

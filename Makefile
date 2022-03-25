@@ -8,7 +8,7 @@ CFLAGS=-Wall -Wextra -Werror
 
 RM=rm -f
 
-SRC=push_swap.c
+SRC=push_swap.c stack_utils.c utilities.c parser.c
 
 BONUS =
 
@@ -16,9 +16,9 @@ BONUS_OBJ = $(BONUS:.c=.o)
 
 OBJ=$(SRC:.c=.o)
 
-$(NAME):
+$(NAME): $(addprefix src/, $(SRC)) src/push_swap.h
 	@make -C $(LIBFT)
-	$(CC) $(CFLAGS) -c src/$(SRC)
+	$(CC) $(CFLAGS) -c $(addprefix src/, $(SRC))
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT)/libft.a  -o $(NAME)
 
 all: $(NAME)
