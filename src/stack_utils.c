@@ -6,75 +6,11 @@
 /*   By: nthomas- <nthomas-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 14:57:57 by nthomas-          #+#    #+#             */
-/*   Updated: 2022/03/25 16:52:23 by nthomas-         ###   ########.fr       */
+/*   Updated: 2022/03/28 15:30:20 by nthomas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-t_stack	*stack_new(int value)
-{
-	t_stack	*new;
-
-	new = malloc(sizeof(t_stack));
-	if (!new)
-		return (NULL);
-	new->value = value;
-	new->next = NULL;
-	return (new);
-}
-
-int	stack_size(t_stack *stack)
-{
-	int		i;
-	t_stack	*j;
-
-	i = 0;
-	j = stack;
-	while (j)
-	{
-		j = j->next;
-		i++;
-	}
-	return (i);
-}
-
-void	stack_add_back(t_stack **stack, t_stack *n)
-{
-	t_stack	*i;
-
-	if (!*stack)
-		*stack = n;
-	else
-	{
-		i = stack_last(*stack);
-		i->next = n;
-	}
-}
-
-t_stack	*stack_last(t_stack *stack)
-{
-	t_stack	*i;
-
-	if (!stack)
-		return (NULL);
-	i = stack;
-	while (i->next)
-		i = i->next;
-	return (i);
-}
-
-t_stack	*stack_penultimate(t_stack *stack)
-{
-	t_stack	*i;
-
-	if (!stack)
-		return (NULL);
-	i = stack;
-	while (i->next->next)
-		i = i->next;
-	return (i);
-}
 
 void	stack_free(t_stack **stack)
 {
@@ -89,4 +25,26 @@ void	stack_free(t_stack **stack)
 		*stack = tmp;
 	}
 	stack = NULL;
+}
+
+void	print_stacks(t_data *data)
+{
+	t_stack	*a;
+	t_stack	*b;
+
+	a = data->a;
+	b = data->b;
+	ft_printf("a: ");
+	while (a)
+	{
+		ft_printf("%d, ", a->value);
+		a = a->next;
+	}
+	ft_printf("\nb: ");
+	while (b)
+	{
+		ft_printf("%d, ", b->value);
+		b = b->next;
+	}
+	ft_printf("\n");
 }

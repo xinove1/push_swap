@@ -6,7 +6,7 @@
 /*   By: nthomas- <nthomas-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 13:59:08 by nthomas-          #+#    #+#             */
-/*   Updated: 2022/03/25 16:52:43 by nthomas-         ###   ########.fr       */
+/*   Updated: 2022/03/27 14:17:10 by nthomas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,16 @@ void		stack_free(t_stack **stack);
 void		print_stacks(t_data *data);
 t_stack		*stack_penultimate(t_stack *stack);
 
-void		sa(t_data *data);
-void		sb(t_data *data);
+void		sa(t_data *data, int print);
+void		sb(t_data *data, int print);
 void		ss(t_data *data);
 void		pa(t_data *data);
 void		pb(t_data *data);
-void		ra(t_data *data);
-void		rb(t_data *data);
+void		ra(t_data *data, int print);
+void		rb(t_data *data, int print);
 void		rr(t_data *data);
-void		rra(t_data *data);
-void		rrb(t_data *data);
+void		rra(t_data *data, int print);
+void		rrb(t_data *data, int print);
 void		rrr(t_data *data);
 
 #endif

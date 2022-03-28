@@ -8,9 +8,11 @@ CFLAGS=-Wall -Wextra -Werror
 
 RM=rm -f
 
-SRC=push_swap.c stack_utils.c utilities.c parser.c operations.c
+SRC= push_swap.c stack.c stack_utils.c utilities.c parser.c operations.c
 
-BONUS =
+BONUS= checker.c stack.c stack_utils.c utilities.c parser.c operations.c
+
+BONUS_NAME = checker
 
 BONUS_OBJ = $(BONUS:.c=.o)
 
@@ -23,18 +25,20 @@ $(NAME): $(addprefix src/, $(SRC)) src/push_swap.h
 
 all: $(NAME)
 
-bonus: checker.h
+$(BONUS_NAME): $(addprefix src/, $(BONUS)) src/push_swap.h
 	@make -C $(LIBFT)
-	$(CC) $(CFLAGS) -c src/$(BONUS)
-	$(CC) $(CFLAGS) $(BONUS_OBJ) $(LIBFT)/libft.a  -o $(NAME)
+	$(CC) $(CFLAGS) -c $(addprefix src/, $(BONUS))
+	$(CC) $(CFLAGS) $(BONUS_OBJ) $(LIBFT)/libft.a  -o $(BONUS_NAME)
+
+bonus: $(BONUS_NAME)
 
 clean:
 	@make -C $(LIBFT) clean
 	@$(RM) $(OBJ) $(BONUS_OBJ)
 
-fclean: clean
+fclean:
 	@make -C $(LIBFT) fclean
-	@$(RM) $(NAME) $(BONUS_OBJ)
+	@$(RM) $(NAME) $(BONUS_NAME) $(OBJ) $(BONUS_OBJ)
 
 re: fclean all
 
