@@ -15,25 +15,25 @@
 int	parse_input(int argc, char *argv[], t_data *data)
 {
 	int	i;
-	int	x;
+	int	j;
 	int	parse;
 
 	i = 0;
 	while (++i < argc)
 	{
-		x = 0;
+		j = -1;
 		parse = 1;
-		while (argv[i][x])
+		while (argv[i][++j])
 		{
-			if (!(ft_isdigit(argv[i][x])))
-				return (1);
-			if (ft_isspace(argv[i][x]))
+			if (ft_isspace(argv[i][j]))
 			{
 				if (parse_input_str(argv[i], data))
 					return (1);
 				parse = 0;
+				break;
 			}
-			x++;
+			else if (!(ft_isdigit(argv[i][j])) && argv[i][j] != '-')
+				return (1);
 		}
 		if (parse)
 			stack_add_back(&data->a, stack_new(atoi(argv[i])));
@@ -41,6 +41,7 @@ int	parse_input(int argc, char *argv[], t_data *data)
 	return (0);
 }
 
+//FIXME Most probaly slow with big list of numbers
 int	verify_input(t_data *data)
 {
 	t_stack	*i;
