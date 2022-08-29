@@ -30,7 +30,7 @@ int	parse_input(int argc, char *argv[], t_data *data)
 				if (parse_input_str(argv[i], data))
 					return (1);
 				parse = 0;
-				break;
+				break ;
 			}
 			else if (!(ft_isdigit(argv[i][j])) && argv[i][j] != '-')
 				return (1);

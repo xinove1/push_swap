@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 int	ft_isdigit_test(int c);
 
 int	main(int argc, char *argv[])
@@ -29,6 +30,7 @@ int	main(int argc, char *argv[])
 	rrb(&data, 1);
 	print_stacks(&data);
 
+	//Cleaning
 	stack_free(&data.a);
 	stack_free(&data.b);
 }
