@@ -44,6 +44,8 @@ void		stack_free(t_stack **stack);
 void		print_stacks(t_data *data);
 t_stack		*stack_penultimate(t_stack *stack);
 
+void		prep_stack(t_data *data);
+
 void		sa(t_data *data, int print);
 void		sb(t_data *data, int print);
 void		ss(t_data *data);

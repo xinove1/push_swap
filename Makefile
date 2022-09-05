@@ -4,11 +4,11 @@ LIBFT = ./libft
 
 CC=gcc
 
-CFLAGS=-Wall -Wextra -Werror
+CFLAGS=-Wall -Wextra -Werror -g3
 
 RM=rm -f
 
-SRC= push_swap.c stack.c stack_utils.c utilities.c parser.c operations.c
+SRC= push_swap.c stack.c stack_utils.c utilities.c parser.c operations.c prepare_stack.c
 
 BONUS= checker.c stack.c stack_utils.c utilities.c parser.c operations.c
 

@@ -41,7 +41,7 @@ int	parse_input(int argc, char *argv[], t_data *data)
 	return (0);
 }
 
-//FIXME Most probaly slow with big list of numbers
+//FIXME Probaly slow with big list of numbers
 int	verify_input(t_data *data)
 {
 	t_stack	*i;
@@ -50,6 +50,7 @@ int	verify_input(t_data *data)
 	i = data->a;
 	while (i)
 	{
+		// NOTE change data->a to i
 		x = data->a;
 		while (x)
 		{

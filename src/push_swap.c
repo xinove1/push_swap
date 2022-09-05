@@ -26,8 +26,7 @@ int	main(int argc, char *argv[])
 	}
 
 	print_stacks(&data);
-	pb(&data);
-	rrb(&data, 1);
+	prep_stack(&data);
 	print_stacks(&data);
 
 	//Cleaning

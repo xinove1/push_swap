@@ -37,6 +37,7 @@ static void	read_instructions(t_data *data)
 {
 	char	*line;
 
+	//FIXME What is this??? why are we setting it to 10, nothing in the whole codebase uses this variable
 	data->stack_size = 10;
 	line = get_next_line(STDIN_FILENO);
 	while (line)
