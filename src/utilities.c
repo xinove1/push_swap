@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <unistd.h>
 
 void	free_2darray(char **array)
 {
@@ -22,18 +23,47 @@ void	free_2darray(char **array)
 	free(array);
 }
 
-void	init_data(t_data *data)
-{
-	data->a = NULL;
-	data->b = NULL;
-	data->stack_size = 0;
-	data->algo = 0;
-}
-
 void	error(t_data *data)
 {
 	stack_free(&data->a);
 	stack_free(&data->b);
-	ft_putstr_fd("Error\n", 1);
+	ft_putstr_fd("Error\n", STDERR_FILENO);
 	exit(1);
+}
+
+int	validate(t_data *data)
+{
+	t_stack	*a;
+	int		tmp;
+
+	/* if (data->b) */
+	/* 	return (1); */
+	a = data->a;
+	tmp = a->value;
+	a = a->next;
+	while (a)
+	{
+		if (a->value < tmp)
+			return (1);
+		tmp = a->value;
+		a = a->next;
+	}
+	return (0);
+}
+
+void	ra(t_data *data, int print)
+{
+	t_stack	*a;
+	t_stack	*tmp;
+
+	if (print)
+		ft_printf("ra\n");
+	if (!data->a)
+		return ;
+	a = data->a;
+	data->a = a->next;
+	a->next = NULL;
+	tmp = stack_last(data->a);
+	if (tmp)
+		tmp->next = a;
 }

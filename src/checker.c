@@ -14,13 +14,13 @@
 
 static int	find_operations(char *str, t_data *data);
 static void	read_instructions(t_data *data);
-static int	validate(t_data *data);
 
 int	main(int argc, char *argv[])
 {
 	t_data	data;
 
-	init_data(&data);
+	data.a = NULL;
+	data.b = NULL;
 	if (parse_input(argc, argv, &data) || verify_input(&data))
 		error(&data);
 	read_instructions(&data);
@@ -28,7 +28,6 @@ int	main(int argc, char *argv[])
 		ft_printf("KO\n");
 	else
 		ft_printf("OK\n");
-	print_stacks(&data);
 	stack_free(&data.a);
 	stack_free(&data.b);
 }
@@ -37,8 +36,6 @@ static void	read_instructions(t_data *data)
 {
 	char	*line;
 
-	//FIXME What is this??? why are we setting it to 10, nothing in the whole codebase uses this variable
-	data->stack_size = 10;
 	line = get_next_line(STDIN_FILENO);
 	while (line)
 	{
@@ -75,25 +72,5 @@ static int	find_operations(char *str, t_data *data)
 		rrr(data);
 	else
 		return (1);
-	return (0);
-}
-
-int	validate(t_data *data)
-{
-	t_stack	*a;
-	int		tmp;
-
-	if (data->b)
-		return (1);
-	a = data->a;
-	tmp = a->value;
-	a = a->next;
-	while (a)
-	{
-		if (a->value < tmp)
-			return (1);
-		tmp = a->value;
-		a = a->next;
-	}
 	return (0);
 }

@@ -13,6 +13,8 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "../libft/libft.h"
+# define INT_MIN 	-2147483648
+# define INT_MAX 	+2147483647
 
 typedef struct s_stack
 {
@@ -24,16 +26,13 @@ typedef struct s_data
 {
 	t_stack					*a;
 	t_stack					*b;
-	int						stack_size;
-	int						algo;
 }	t_data;
 
 int			parse_input(int argc, char *argv[], t_data *data);
 int			parse_input_str(char *str, t_data *data);
-int			verify_input(t_data *data);
+int			verify_duplication(t_data *data);
 
 void		free_2darray(char **array);
-void		init_data(t_data *data);
 void		error(t_data *data);
 
 void		stack_add_back(t_stack **stack, t_stack *n);
@@ -47,6 +46,9 @@ t_stack		*stack_penultimate(t_stack *stack);
 void		prep_stack(t_data *data);
 
 void		radix(t_data *data);
+void		sort_three(t_data *data);
+void		sort_four(t_data *data);
+void		sort_five(t_data *data);
 int			validate(t_data *data);
 
 void		sa(t_data *data, int print);

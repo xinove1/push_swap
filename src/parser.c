@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <limits.h>
 
 int	parse_input(int argc, char *argv[], t_data *data)
 {
@@ -36,13 +37,12 @@ int	parse_input(int argc, char *argv[], t_data *data)
 				return (1);
 		}
 		if (parse)
-			stack_add_back(&data->a, stack_new(atoi(argv[i])));
+			stack_add_back(&data->a, stack_new(ft_atoi(argv[i])));
 	}
 	return (0);
 }
 
-//FIXME Probaly slow with big list of numbers
-int	verify_input(t_data *data)
+int	verify_duplication(t_data *data)
 {
 	t_stack	*i;
 	t_stack	*x;
@@ -50,8 +50,7 @@ int	verify_input(t_data *data)
 	i = data->a;
 	while (i)
 	{
-		// NOTE change data->a to i
-		x = data->a;
+		x = i;
 		while (x)
 		{
 			if (i->value == x->value && i != x)
@@ -86,7 +85,7 @@ int	parse_input_str(char *str, t_data *data)
 			x++;
 		}
 		if (parse)
-			stack_add_back(&data->a, stack_new(atoi(parsed[i])));
+			stack_add_back(&data->a, stack_new(ft_atoi(parsed[i])));
 	}
 	free_2darray(parsed);
 	return (0);
