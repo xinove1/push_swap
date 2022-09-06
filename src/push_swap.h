@@ -46,6 +46,9 @@ t_stack		*stack_penultimate(t_stack *stack);
 
 void		prep_stack(t_data *data);
 
+void		radix(t_data *data);
+int			validate(t_data *data);
+
 void		sa(t_data *data, int print);
 void		sb(t_data *data, int print);
 void		ss(t_data *data);

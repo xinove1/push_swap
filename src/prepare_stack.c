@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   radix.c                                            :+:      :+:    :+:   */
+/*   prepare_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thomas </var/spool/mail/thomas>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 13:33:10 by thomas            #+#    #+#             */
-/*   Updated: 2022/07/25 13:33:10 by thomas           ###   ########.fr       */
+/*   Updated: 2022/09/05 10:11:02 by thomas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
 static void	copy_to_array(t_stack *a, int	*stack);
-static void selection_sort(int *arr, int n);
-static int	find_pos(int value,  int *sorted_stack, int sz);
+static void	selection_sort(int *arr, int n);
+static int	find_pos(int value, int *sorted_stack, int sz);
 
 void	prep_stack(t_data *data)
 {
@@ -49,36 +48,39 @@ static void	copy_to_array(t_stack *a, int	*stack)
 	}
 }
 
-static void swap(int *xp, int *yp)
+static void	swap(int *x, int *y)
 {
-    int temp = *xp;
-    *xp = *yp;
-    *yp = temp;
+	int	tmp;
+
+	tmp = *x;
+	*x = *y;
+	*y = tmp;
 }
 
-
 //TODO isso
-static void selection_sort(int *arr, int sz)
+static void	selection_sort(int *arr, int sz)
 {
-    int i, j, min;
+	int	i;
+	int	j;
+	int	min;
 
 	i = 0;
-    while (i < sz - 1)
+	while (i < sz - 1)
 	{
-        min = i;
+		min = i;
 		j = i + 1;
 		while (j < sz)
 		{
-            if (arr[j] < arr[min])
-                min = j;
+			if (arr[j] < arr[min])
+				min = j;
 			j++;
 		}
-        swap(&arr[min], &arr[i]);
+		swap(&arr[min], &arr[i]);
 		i++;
-    }
+	}
 }
 
-static int	find_pos(int value,  int *sorted_stack, int sz)
+static int	find_pos(int value, int *sorted_stack, int sz)
 {
 	int	i;
 
@@ -91,4 +93,3 @@ static int	find_pos(int value,  int *sorted_stack, int sz)
 	}
 	return (i);
 }
-

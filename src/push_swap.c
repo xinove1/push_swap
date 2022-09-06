@@ -19,15 +19,23 @@ int	main(int argc, char *argv[])
 	t_data	data;
 
 	init_data(&data);
-	if (parse_input(argc, argv, &data) || verify_input(&data))
+	//TODO check pdf for min number of entrys
+	if (argc == 1 || parse_input(argc, argv, &data) || verify_input(&data))
 	{
 		ft_printf("AAAAAAAAAaaa\n");
 		error(&data);
 	}
 
+	//TODO check if is already sorted
+
 	print_stacks(&data);
-	prep_stack(&data);
-	print_stacks(&data);
+	if (validate(&data))
+	{
+		prep_stack(&data);
+		print_stacks(&data);
+		radix(&data);
+		print_stacks(&data);
+	}
 
 	//Cleaning
 	stack_free(&data.a);
@@ -43,5 +51,25 @@ int	ft_isdigit_test(int c)
 		return (1);
 	}
 	ft_printf("is not digit\n");
+	return (0);
+}
+
+int	validate(t_data *data)
+{
+	t_stack	*a;
+	int		tmp;
+
+	if (data->b)
+		return (1);
+	a = data->a;
+	tmp = a->value;
+	a = a->next;
+	while (a)
+	{
+		if (a->value < tmp)
+			return (1);
+		tmp = a->value;
+		a = a->next;
+	}
 	return (0);
 }

@@ -78,7 +78,7 @@ static int	find_operations(char *str, t_data *data)
 	return (0);
 }
 
-static int	validate(t_data *data)
+int	validate(t_data *data)
 {
 	t_stack	*a;
 	int		tmp;
