@@ -8,9 +8,9 @@ CFLAGS=-Wall -Wextra -Werror -g3
 
 RM=rm -f
 
-SRC= push_swap.c stack.c stack_utils.c utilities.c parser.c operations.c operations2.c prepare_stack.c radix.c
+SRC= push_swap.c stack.c stack_utils.c utilities.c parser.c operations.c operations2.c prepare_stack.c radix.c ft_atoi_check.c
 
-BONUS= checker.c stack.c stack_utils.c utilities.c parser.c operations.c operations2.c
+BONUS= checker.c stack.c stack_utils.c utilities.c parser.c operations.c operations2.c ft_atoi_check.c
 
 BONUS_NAME = checker
 

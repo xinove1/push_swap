@@ -18,8 +18,8 @@
 
 typedef struct s_stack
 {
-	int				value;
-	struct s_stack	*next;
+	int						value;
+	struct s_stack			*next;
 }	t_stack;
 
 typedef struct s_data
@@ -31,10 +31,8 @@ typedef struct s_data
 int			parse_input(int argc, char *argv[], t_data *data);
 int			parse_input_str(char *str, t_data *data);
 int			verify_duplication(t_data *data);
-
 void		free_2darray(char **array);
 void		error(t_data *data);
-
 void		stack_add_back(t_stack **stack, t_stack *n);
 t_stack		*stack_last(t_stack *stack);
 int			stack_size(t_stack *stack);
@@ -42,15 +40,13 @@ t_stack		*stack_new(int value);
 void		stack_free(t_stack **stack);
 void		print_stacks(t_data *data);
 t_stack		*stack_penultimate(t_stack *stack);
-
 void		prep_stack(t_data *data);
-
 void		radix(t_data *data);
 void		sort_three(t_data *data);
 void		sort_four(t_data *data);
 void		sort_five(t_data *data);
 int			validate(t_data *data);
-
+int			ft_atoi_check(const char *str, int *invalide);
 void		sa(t_data *data, int print);
 void		sb(t_data *data, int print);
 void		ss(t_data *data);

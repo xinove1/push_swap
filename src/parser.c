@@ -11,7 +11,8 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <limits.h>
+
+static int	add_to_stack(t_data *data, char *str);
 
 int	parse_input(int argc, char *argv[], t_data *data)
 {
@@ -36,9 +37,20 @@ int	parse_input(int argc, char *argv[], t_data *data)
 			else if (!(ft_isdigit(argv[i][j])) && argv[i][j] != '-')
 				return (1);
 		}
-		if (parse)
-			stack_add_back(&data->a, stack_new(ft_atoi(argv[i])));
+		if (parse && add_to_stack(data, argv[i]))
+			return (1);
 	}
+	return (0);
+}
+
+static int	add_to_stack(t_data *data, char *str)
+{
+	int	flag;
+
+	flag = 0;
+	stack_add_back(&data->a, stack_new(ft_atoi_check(str, &flag)));
+	if (flag)
+		return (1);
 	return (0);
 }
 

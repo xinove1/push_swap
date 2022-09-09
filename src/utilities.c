@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <unistd.h>
 
 void	free_2darray(char **array)
 {
@@ -36,6 +35,7 @@ int	validate(t_data *data)
 	t_stack	*a;
 	int		tmp;
 
+	//NOTE move check b to only checker.c
 	/* if (data->b) */
 	/* 	return (1); */
 	a = data->a;
