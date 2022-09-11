@@ -6,7 +6,7 @@
 /*   By: nthomas- <nthomas-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 13:59:08 by nthomas-          #+#    #+#             */
-/*   Updated: 2022/03/27 14:17:10 by nthomas-         ###   ########.fr       */
+/*   Updated: 2022/09/11 19:01:43 by nthomas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,14 @@ int			validate(t_data *data);
 int			ft_atoi_check(const char *str, int *invalide);
 void		sa(t_data *data, int print);
 void		sb(t_data *data, int print);
-void		ss(t_data *data);
-void		pa(t_data *data);
-void		pb(t_data *data);
+void		ss(t_data *data, int print);
+void		pa(t_data *data, int print);
+void		pb(t_data *data, int print);
 void		ra(t_data *data, int print);
 void		rb(t_data *data, int print);
-void		rr(t_data *data);
+void		rr(t_data *data, int print);
 void		rra(t_data *data, int print);
 void		rrb(t_data *data, int print);
-void		rrr(t_data *data);
+void		rrr(t_data *data, int print);
 
 #endif

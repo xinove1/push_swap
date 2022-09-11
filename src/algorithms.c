@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algorithms.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nthomas- <nthomas-@student.42sp.org.br     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/11 19:01:29 by nthomas-          #+#    #+#             */
+/*   Updated: 2022/09/11 19:01:30 by nthomas-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	radix(t_data *data)
@@ -20,10 +32,10 @@ void	radix(t_data *data)
 			if (((data->a->value >> i) & 1) == 1)
 				ra(data, 1);
 			else
-				pb(data);
+				pb(data, 1);
 		}
 		while (data->b)
-			pa(data);
+			pa(data, 1);
 		if (!validate(data))
 			break ;
 	}
@@ -62,16 +74,18 @@ static void	sort_five_aux(t_data *d, int top, int mid, int bot)
 {
 	int	topp;
 
-	topp = d->a->value;
-	if (topp > d->a->value && topp < top)
-		sa(d, 1);
-	else if (topp > d->a->next->value && topp > top && topp < mid)
+	topp = d->b->value;
+	if (topp > d->a->value && topp > top && topp < mid)
 	{
-		sa(d, 1);
 		ra(d, 1);
+		pa(d, 1);
 		sa(d, 1);
 		rra(d, 1);
+		return ;
 	}
+	pa(d, 1);
+	if (topp > d->a->next->value && topp < top)
+		sa(d, 1);
 	else if (topp > d->a->next->value && topp > top && topp > mid && topp < bot)
 	{
 		rra(d, 1);
@@ -89,12 +103,13 @@ void	sort_five(t_data *data)
 	int	mid;
 	int	bot;
 
-	pb(data);
+	if (data->a->value + data->a->next->value == 5)
+		rra(data, 1);
+	pb(data, 1);
 	sort_four(data);
 	top = data->a->next->value;
 	mid = data->a->next->next->value;
 	bot = data->a->next->next->next->value;
-	pa(data);
 	sort_five_aux(data, top, mid, bot);
 }
 
@@ -105,12 +120,12 @@ void	sort_four(t_data *data)
 	int	mid;
 	int	bot;
 
-	pb(data);
+	pb(data, 1);
 	sort_three(data);
 	top = data->a->value;
 	mid = data->a->next->value;
 	bot = data->a->next->next->value;
-	pa(data);
+	pa(data, 1);
 	topp = data->a->value;
 	if (topp > top && topp > mid && topp > bot)
 		ra(data, 1);

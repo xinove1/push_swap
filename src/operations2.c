@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operations2.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nthomas- <nthomas-@student.42sp.org.br     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/11 19:00:20 by nthomas-          #+#    #+#             */
+/*   Updated: 2022/09/11 19:00:21 by nthomas-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	rb(t_data *data, int print)
@@ -17,9 +29,10 @@ void	rb(t_data *data, int print)
 		tmp->next = b;
 }
 
-void	rr(t_data *data)
+void	rr(t_data *data, int print)
 {
-	ft_printf("rr\n");
+	if (print)
+		ft_printf("rr\n");
 	ra(data, 0);
 	rb(data, 0);
 }
@@ -60,9 +73,10 @@ void	rrb(t_data *data, int print)
 	penul->next = NULL;
 }
 
-void	rrr(t_data *data)
+void	rrr(t_data *data, int print)
 {
-	ft_printf("rrr\n");
+	if (print)
+		ft_printf("rrr\n");
 	rra(data, 0);
 	rrb(data, 0);
 }

@@ -44,18 +44,20 @@ void	sb(t_data *data, int print)
 	data->b = tmp;
 }
 
-void	ss(t_data *data)
+void	ss(t_data *data, int print)
 {
-	ft_printf("ss\n");
+	if (print)
+		ft_printf("ss\n");
 	sa(data, 0);
 	sb(data, 0);
 }
 
-void	pa(t_data *data)
+void	pa(t_data *data, int print)
 {
 	t_stack	*b;
 
-	ft_printf("pa\n");
+	if (print)
+		ft_printf("pa\n");
 	if (!data->b)
 		return ;
 	b = data->b;
@@ -64,11 +66,12 @@ void	pa(t_data *data)
 	data->a = b;
 }
 
-void	pb(t_data *data)
+void	pb(t_data *data, int print)
 {
 	t_stack	*a;
 
-	ft_printf("pb\n");
+	if (print)
+		ft_printf("pb\n");
 	if (!data->a)
 		return ;
 	a = data->a;

@@ -6,7 +6,7 @@
 /*   By: nthomas- <nthomas-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 14:58:01 by nthomas-          #+#    #+#             */
-/*   Updated: 2022/03/28 15:32:39 by nthomas-         ###   ########.fr       */
+/*   Updated: 2022/09/11 19:01:55 by nthomas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,6 @@ int	validate(t_data *data)
 	t_stack	*a;
 	int		tmp;
 
-	//NOTE move check b to only checker.c
-	/* if (data->b) */
-	/* 	return (1); */
 	a = data->a;
 	tmp = a->value;
 	a = a->next;
